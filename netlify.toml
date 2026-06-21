@@ -7,8 +7,8 @@
   publish = ".next"
 
 [build.environment]
-  # Next 15 needs Node >= 18.18; pin a current LTS for reproducible builds.
-  NODE_VERSION = "20"
+  # pnpm 11.5 (pinned via packageManager) requires Node >= 22.13.
+  NODE_VERSION = "22"
   # Use corepack so Netlify runs the same pnpm version you use locally.
   COREPACK_ENABLE = "1"
 
