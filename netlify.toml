@@ -1,0 +1,17 @@
+# Netlify configuration for CHED MED (Next.js 15 App Router, SSR + server actions).
+# The official Next.js Runtime is auto-installed by Netlify and handles SSR,
+# middleware (edge), and server actions — no static export needed.
+
+[build]
+  command = "pnpm build"
+  publish = ".next"
+
+[build.environment]
+  # Next 15 needs Node >= 18.18; pin a current LTS for reproducible builds.
+  NODE_VERSION = "20"
+  # Use corepack so Netlify runs the same pnpm version you use locally.
+  COREPACK_ENABLE = "1"
+
+# Netlify auto-detects and applies this plugin, but declaring it is explicit.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
