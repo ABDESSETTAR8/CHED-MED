@@ -95,26 +95,53 @@ export function LoginForm() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-2">
-        <button
-          type="button"
-          onClick={() => loginAs("admin")}
-          className="flex items-center justify-center gap-2 rounded-lg border border-brand/30 bg-brand-50 px-3 py-2.5 text-sm font-medium text-brand transition-colors hover:bg-brand-100"
-        >
-          <Shield className="h-4 w-4" /> Demo Admin
-        </button>
-        <button
-          type="button"
-          onClick={() => loginAs("driver")}
-          className="flex items-center justify-center gap-2 rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2.5 text-sm font-medium text-indigo-700 transition-colors hover:bg-indigo-100"
-        >
-          <Truck className="h-4 w-4" /> Demo Driver
-        </button>
+      <div className="grid gap-2 sm:grid-cols-2">
+        {/* Admin demo card */}
+        <div className="rounded-xl border border-brand/30 bg-brand-50 p-3">
+          <button
+            type="button"
+            onClick={() => loginAs("admin")}
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand px-3 py-2 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
+          >
+            <Shield className="h-4 w-4" /> Login as Admin
+          </button>
+          <dl className="mt-2 space-y-0.5 text-[11px] text-slate-600">
+            <div className="flex justify-between gap-2">
+              <dt className="text-slate-400">Email</dt>
+              <dd className="font-mono">{DEMO_ACCOUNTS.admin.email}</dd>
+            </div>
+            <div className="flex justify-between gap-2">
+              <dt className="text-slate-400">Password</dt>
+              <dd className="font-mono">{DEMO_ACCOUNTS.admin.password}</dd>
+            </div>
+          </dl>
+        </div>
+
+        {/* Driver demo card */}
+        <div className="rounded-xl border border-indigo-200 bg-indigo-50 p-3">
+          <button
+            type="button"
+            onClick={() => loginAs("driver")}
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
+          >
+            <Truck className="h-4 w-4" /> Login as Driver
+          </button>
+          <dl className="mt-2 space-y-0.5 text-[11px] text-slate-600">
+            <div className="flex justify-between gap-2">
+              <dt className="text-slate-400">Email</dt>
+              <dd className="font-mono">{DEMO_ACCOUNTS.driver.email}</dd>
+            </div>
+            <div className="flex justify-between gap-2">
+              <dt className="text-slate-400">Password</dt>
+              <dd className="font-mono">{DEMO_ACCOUNTS.driver.password}</dd>
+            </div>
+          </dl>
+        </div>
       </div>
 
       <p className="text-center text-[11px] leading-relaxed text-slate-400">
-        Demo accounts are ready to explore. Admin sees dispatch, fleet &amp;
-        analytics; Driver sees the delivery workflow.
+        Click a card to sign in instantly, or type the credentials above. Admin
+        sees dispatch, fleet &amp; analytics; Driver sees the delivery workflow.
       </p>
     </div>
   );
